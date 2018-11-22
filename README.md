@@ -1,5 +1,5 @@
 # ElkEngine
-A C++ game engine made in 2 weeks
+A C++ game engine made in 2 weeks in a team of 3 persons
 
 # Technical informations
 In order to have fun with our work, you need to have :
