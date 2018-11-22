@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{22ADA641-F944-4FB7-B482-90CE19B164FC}</ProjectGuid>
+    <RootNamespace>ElkTools</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Build\ElkAPI\include;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Build\ElkAPI\include;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Build\ElkAPI\include;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir);$(ProjectDir)include;$(SolutionDir)Build\ElkAPI\include;$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Build\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>ELK_TOOLS_EXPORT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>:: Delete the previous build ::
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\include"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)"
+
+:: Copy his includes into the build folder ::
+xcopy "$(ProjectDir)include" "$(SolutionDir)Build\$(ProjectName)\include" /e /y /i /r
+xcopy "$(OutDir)*.lib" "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)" /y /i
+xcopy "$(OutDir)*.dll" "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)" /y /i
+
+:: Copy ElkAPI ::
+xcopy "$(SolutionDir)Build\ElkAPI\include\*" "$(SolutionDir)Build\$(ProjectName)\include\" /e /y /i /r</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>ELK_TOOLS_EXPORT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>:: Delete the previous build ::
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\include"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)"
+
+:: Copy his includes into the build folder ::
+xcopy "$(ProjectDir)include" "$(SolutionDir)Build\$(ProjectName)\include" /e /y /i /r
+xcopy "$(OutDir)*.lib" "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)" /y /i
+xcopy "$(OutDir)*.dll" "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)" /y /i
+
+:: Copy ElkAPI ::
+xcopy "$(SolutionDir)Build\ElkAPI\include\*" "$(SolutionDir)Build\$(ProjectName)\include\" /e /y /i /r</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>ELK_TOOLS_EXPORT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>:: Delete the previous build ::
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\include"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)"
+
+:: Copy his includes into the build folder ::
+xcopy "$(ProjectDir)include" "$(SolutionDir)Build\$(ProjectName)\include" /e /y /i /r
+xcopy "$(OutDir)*.lib" "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)" /y /i
+xcopy "$(OutDir)*.dll" "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)" /y /i
+
+:: Copy ElkAPI ::
+xcopy "$(SolutionDir)Build\ElkAPI\include\*" "$(SolutionDir)Build\$(ProjectName)\include\" /e /y /i /r</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>ELK_TOOLS_EXPORT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>:: Delete the previous build ::
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\include"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)"
+RD /S /Q "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)"
+
+:: Copy his includes into the build folder ::
+xcopy "$(ProjectDir)include" "$(SolutionDir)Build\$(ProjectName)\include" /e /y /i /r
+xcopy "$(OutDir)*.lib" "$(SolutionDir)Build\$(ProjectName)\lib\$(Platform)\$(Configuration)" /y /i
+xcopy "$(OutDir)*.dll" "$(SolutionDir)Build\$(ProjectName)\bin\$(Platform)\$(Configuration)" /y /i
+
+:: Copy ElkAPI ::
+xcopy "$(SolutionDir)Build\ElkAPI\include\*" "$(SolutionDir)Build\$(ProjectName)\include\" /e /y /i /r</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ElkTools\Debug\Assertion.h" />
+    <ClInclude Include="include\ElkTools\Debug\ConsoleColor.h" />
+    <ClInclude Include="include\ElkTools\Debug\Log.h" />
+    <ClInclude Include="include\ElkTools\exportElkTools.h" />
+    <ClInclude Include="include\ElkTools\Managers\AResourceManager.h" />
+    <ClInclude Include="include\ElkTools\Utils\Benchmark.h" />
+    <ClInclude Include="include\ElkTools\Utils\IniLoader.h" />
+    <ClInclude Include="include\ElkTools\Utils\Date.h" />
+    <ClInclude Include="include\ElkTools\Utils\Profiler.h" />
+    <ClInclude Include="include\ElkTools\Utils\SharedData.h" />
+    <ClInclude Include="include\ElkTools\Utils\Time.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Debug\Assertion.cpp" />
+    <ClCompile Include="src\Debug\Log.cpp" />
+    <ClCompile Include="src\Utils\Benchmark.cpp" />
+    <ClCompile Include="src\Utils\IniLoader.cpp" />
+    <ClCompile Include="src\Utils\Date.cpp" />
+    <ClCompile Include="src\Utils\Profiler.cpp" />
+    <ClCompile Include="src\Utils\SharedData.cpp" />
+    <ClCompile Include="src\Utils\Time.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

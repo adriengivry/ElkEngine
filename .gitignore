@@ -1,0 +1,12 @@
+# VS Directories
+.vs/
+Build/
+
+# VS Files
+*.user
+
+# Other Directories
+logs/
+
+# Other Files
+*.dll
